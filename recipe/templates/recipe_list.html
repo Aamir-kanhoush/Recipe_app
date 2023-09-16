@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Your Recipe List</h1>
+<ul>
+    
+    {% if recipe %}
+    
+    {% for rec in recipe %}
+        <li><a href="{% url 'recipe_detail' pk=rec.pk %}">{{ rec.title }}</a></li>
+    {% endfor %}
+    {% else %}
+    <li>No recipes yet.</li>
+    {% endif %}
+</ul>
+{% endblock %}
